@@ -1,37 +1,37 @@
 import React, { Component } from 'react'
+import {Routes, Route} from 'react-router-dom';
+import Connecter from './Components/Connecter';
+import Connexion from './Components/Connexion';
+import Contact from './Components/Contact';
+import Service from './Components/Service';
+import Home from './Components/Home';
+import Chambre from './Components/Chambre';
 
-export class App extends Component {
+
+class App extends Component {
     constructor(props) {
       super(props)
     
       this.state = {
-        count : 1
+        
       }
-      this.handleIncrement = this.handleIncrement.bind(this);
-      this.handleDecrement = this.handleDecrement.bind(this);
     }
 
 
-    handleDecrement = ()=>{
-        this.setState({count : this.state.count - 1})
-    }
-
-
-    handleIncrement = ()=>{
-        this.setState({count : this.state.count + 1});
-    }
 
 
   render() {
     return (
-      <div id="minuteur">
-        <h1 id="label">Minuteur</h1>
-        <div id="count-value">
-            <button className='btn decrement' onClick={this.handleDecrement}>Décrementer</button>
-            <h2>{this.state.count} </h2>
-            <button className='btn increment' onClick={this.handleIncrement}>Incrementer</button>
-        </div>
-      </div>
+    <div className="App">
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/connexion' element={<Connexion/>} />
+        <Route path='/connecter' element={<Connecter/>} />
+        <Route path='/contact' element={<Contact/>} />
+        <Route path='/service' element={<Service/>} />
+        <Route path='/chambre' element={<Chambre/>} />
+      </Routes>
+    </div> 
     )
   }
 }
